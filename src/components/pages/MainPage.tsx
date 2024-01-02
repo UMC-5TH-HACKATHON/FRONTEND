@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Calendar from './MainPage/Calendar';
 import KnowBanner from './MainPage/KnowBanner';
+import Record from './MainPage/Record';
 import RecordPage from './MainPage/Record';
 import Header from '../common/Header';
 import BottomNav from '../common/BottomNav';
@@ -20,6 +21,11 @@ const MainPage: React.FC = () => {
   return (
     <Container>
       <Header />
+      <KnowBanner />
+      <Calendar setDates={setDates} />
+      <div>
+        <Record dates={dates} />
+      </div>
       <div style={{ marginTop: '10px' }}>
         <KnowBanner />
       </div>
