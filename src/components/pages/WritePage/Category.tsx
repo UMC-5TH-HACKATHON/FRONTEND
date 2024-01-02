@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as BtnArrowBig } from '../../../images/btn_arrow_big.svg';
 import { ReactComponent as BookCheck } from '../../../images/book_check_duotone.svg';
 import { ReactComponent as Polygon } from '../../../images/polygon.svg';
 import NextButton from '../../common/NextButton';
 import { ComponentType } from '../WritePage';
+import axios from 'axios';
 
 type TCategoryProps = {
   // eslint-disable-next-line no-unused-vars
@@ -30,6 +31,17 @@ const Category: React.FC<TCategoryProps> = ({
     '창업 · 부업',
     '직접 추가',
   ];
+
+  useEffect(() => {
+    axios
+      .get('http://3.34.55.111:8080/posts/categories')
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   const BackHandler = () => {
     componentChangeHandler('Write');

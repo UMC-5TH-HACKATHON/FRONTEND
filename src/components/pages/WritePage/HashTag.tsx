@@ -4,6 +4,7 @@ import { ReactComponent as BtnArrowBig } from '../../../images/btn_arrow_big.svg
 import NextButton from '../../common/NextButton';
 import FinishModal from '../../modal/FinishModal';
 import { ComponentType } from '../WritePage';
+//import axios from 'axios';
 
 type THashTagProps = {
   // eslint-disable-next-line no-unused-vars
@@ -36,6 +37,23 @@ const HashTag: React.FC<THashTagProps> = ({
   const DataHandler = () => {
     setIsModalOpen(true);
     console.log(contents + category + hashTag);
+    // axios
+    //       .post('http://3.34.55.111:8080/posts', {
+    //         title: null,
+    //         content: contents,
+    //         category: category,
+    //         tags:hashTag,
+    //       }, {
+    //         headers: {
+    //           memberId: 1
+    //         }
+    //       })
+    //       .then(res => {
+    //       })
+    //       .catch(error => {
+    //         console.error(error);
+    //       });
+    //   }
   };
 
   return (
