@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Calendar from './MainPage/Calendar';
 import KnowBanner from './MainPage/KnowBanner';
 import RecordCard from './MainPage/BottomNav';
 
 const MainPage: React.FC = () => {
+  const today = new Date();
+  const formattedDate = `${today.getFullYear()}${
+    today.getMonth() + 1
+  }${today.getDate()}`;
+  const [dates, setDates] = useState(Number(formattedDate));
+
+  useEffect(() => {
+    console.log(dates);
+  }, [dates]);
+
   return (
     <Container>
       <KnowBanner />
-      <Calendar />
+      <Calendar setDates={setDates} />
       <div>
         <p>나의 기록</p>
         <RecordCard />
@@ -25,12 +35,4 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-
-  div {
-    font: var(--Pretendard-26B);
-  }
-
-  p {
-    font: var(--Pretendard-16M);
-  }
 `;
