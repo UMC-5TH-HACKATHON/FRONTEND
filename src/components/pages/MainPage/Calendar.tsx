@@ -173,7 +173,6 @@ export default Calendar;
 
 const CalendarContainer = styled.div`
   width: 390px;
-  height: 1006px;
 `;
 
 const MonthContainer = styled.div`

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import MainPage from './components/pages/MainPage';
+import WritePage from './components/pages/WritePage';
 import Header from './components/common/Header';
 import BottomNav from './components/common/BottomNav';
 
@@ -12,6 +13,7 @@ const App: React.FC = () => {
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/write" element={<WritePage />} />
         </Routes>
         <BottomNav />
       </BrowserRouter>
