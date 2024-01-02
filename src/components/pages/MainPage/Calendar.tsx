@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { ReactComponent as BtnArrowSmall } from '../../../images/btn_arrow_small.svg';
 import { ReactComponent as RecordOff } from '../../../images/record_off.svg';
@@ -13,6 +13,11 @@ const Calendar: React.FC<{
   const [year, setYear] = useState(today.getFullYear());
   const [month, setMonth] = useState(today.getMonth() + 1);
   const [click, setClick] = useState<string | number>(today.getDate());
+
+  useEffect(() => {
+    const initialDate = year * 10000 + month * 100 + today.getDate();
+    setDates(initialDate);
+  }, [year, month, setDates]); 
 
   const Date12 = [
     { date: '', img: '' },
