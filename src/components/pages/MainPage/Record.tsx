@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 
 const RecordCard: React.FC = () => {
   return <div>BottomNav</div>;

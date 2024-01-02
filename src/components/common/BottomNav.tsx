@@ -1,24 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as HomeImg } from '../../images/home.svg';
 import { ReactComponent as AddImg } from '../../images/plus_button.svg';
+import { ReactComponent as BookClickImg } from '../../images/bookclick.svg';
 import { ReactComponent as BookImg } from '../../images/book.svg';
-import { useNavigate } from 'react-router-dom';
+import { ReactComponent as HomeClickImg } from '../../images/homeclick.svg';
+import { ReactComponent as HomeImg } from '../../images/home.svg';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const BottomNav: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <NavContainer>
       <HomeBtn onClick={() => navigate('/')}>
-        <HomeImg />홈
+        {location.pathname === '/' ? <HomeClickImg /> : <HomeImg />}
+        <Text color={location.pathname === '/' ? '#358FFF' : '#BEC4C6'}>
+          홈
+        </Text>
       </HomeBtn>
-      <AddBtn onClick={() => navigate('/')}>
+      <AddBtn onClick={() => navigate('/write')}>
         <AddImg />
       </AddBtn>
       <RecordBtn onClick={() => navigate('/')}>
-        <BookImg />
-        <div>기록</div>
+        {location.pathname === '/record' ? <BookClickImg /> : <BookImg />}
+        <Text color={location.pathname === '/record' ? '#358FFF' : '#BEC4C6'}>
+          기록
+        </Text>
       </RecordBtn>
     </NavContainer>
   );
@@ -35,10 +43,10 @@ const NavContainer = styled.div`
   width: 390px;
   height: 97px;
   background-color: white;
+  box-shadow: 0px -5px 15px 0px rgba(0, 0, 0, 0.07);
 `;
 
 const HomeBtn = styled.div`
-  font: var(--Pretendard-12M);
   margin-left: 69px;
   margin-top: 11px;
   display: flex;
@@ -47,20 +55,24 @@ const HomeBtn = styled.div`
   cursor: pointer;
 `;
 
+const Text = styled.div<{ color: string }>`
+  margin-top: 3px;
+  font: var(--Pretendard-12M);
+  color: ${props => props.color};
+`;
+
 const AddBtn = styled.div`
   margin-bottom: 16px;
   position: relative;
-  bottom: 36px;
+  bottom: 25px;
   cursor: pointer;
 `;
 
 const RecordBtn = styled.div`
-  font: var(--Pretendard-12M);
   display: flex;
   margin-right: 69px;
   margin-top: 11px;
   flex-direction: column;
-
   text-align: center;
   cursor: pointer;
 `;

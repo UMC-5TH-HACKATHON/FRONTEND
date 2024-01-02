@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import MainPage from './components/pages/MainPage';
 import WritePage from './components/pages/WritePage';
-import BottomNav from './components/common/BottomNav';
 
 const App: React.FC = () => {
   return (
@@ -13,7 +12,6 @@ const App: React.FC = () => {
           <Route path="/" element={<MainPage />} />
           <Route path="/write" element={<WritePage />} />
         </Routes>
-        <BottomNav />
       </BrowserRouter>
     </AppContainer>
   );

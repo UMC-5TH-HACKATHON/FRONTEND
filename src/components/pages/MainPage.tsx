@@ -4,6 +4,7 @@ import Calendar from './MainPage/Calendar';
 import KnowBanner from './MainPage/KnowBanner';
 import RecordCard from './MainPage/Record';
 import Header from '../common/Header';
+import BottomNav from '../common/BottomNav';
 
 const MainPage: React.FC = () => {
   const today = new Date();
@@ -19,12 +20,15 @@ const MainPage: React.FC = () => {
   return (
     <Container>
       <Header />
-      <KnowBanner />
+      <div style={{ marginTop: '10px', marginBottom: '36px' }}>
+        <KnowBanner />
+      </div>
       <Calendar setDates={setDates} />
-      <div>
+      <div style={{ marginTop: '44px' }}>
         <p>나의 기록</p>
         <RecordCard />
       </div>
+      <BottomNav />
     </Container>
   );
 };
@@ -37,5 +41,5 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #d8e4ec;
+  background-color: #f5f6fa;
 `;

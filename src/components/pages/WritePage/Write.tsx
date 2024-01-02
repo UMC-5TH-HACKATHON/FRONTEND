@@ -93,7 +93,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 42px;
   position: relative;
 

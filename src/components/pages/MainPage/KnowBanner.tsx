@@ -19,10 +19,10 @@ const KnowBanner: React.FC = () => {
   }, []);
 */
   return (
-    <Container>
+    <Container onClick={() => navigate('/')}>
       <TextBox>
         <TodayKnowContainer>오늘의 상식</TodayKnowContainer>
-        <QuestionBox onClick={() => navigate('/')}>
+        <QuestionBox>
           영화관에서 팝콘을 먹는 이유는?
           <ArrowImg />
         </QuestionBox>
@@ -37,7 +37,6 @@ const KnowBanner: React.FC = () => {
 export default KnowBanner;
 
 const Container = styled.div`
-  /* Rectangle 10 */
   display: flex;
   flex-direction: row;
   margin-top: 50px;
@@ -46,12 +45,12 @@ const Container = styled.div`
   height: 68px;
   background: #ffffff;
   border-radius: 18px;
+  cursor: pointer;
 `;
 const TextBox = styled.div``;
 
 const TodayKnowContainer = styled.div`
-  /* 오늘의 상식 */
-  /* small/medium */
+  margin-top: 10px;
   margin-left: 24.07px;
   width: 239.677px;
   text-align: left;
@@ -61,12 +60,10 @@ const TodayKnowContainer = styled.div`
 `;
 
 const QuestionBox = styled.div`
-  /* 영화관에서는 팝콘을 먹는 이유는? */
   display: flex;
   margin-left: 24.07px;
   font: var(--Pretendard-16B);
   cursor: pointer;
-
   color: #000000;
 `;
 
