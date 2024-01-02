@@ -35,7 +35,7 @@ type TRecordPageProps = {
 }
 
 const RecordPage: React.FC<TRecordPageProps> = ({ dates }) => {
-  const year = Math.floor(dates / 100); // 년도 추출
+  const year = Math.floor(dates / 10000); // 년도 추출
   const month = Math.floor((dates % 10000) / 100); // 월 추출
   const date = dates % 100; // 일 추출
 
