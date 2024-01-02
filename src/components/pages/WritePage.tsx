@@ -11,6 +11,7 @@ const WritePage: React.FC = () => {
   const [contents, setContents] = useState('');
   const [category, setCategory] = useState('');
   const [hashTag, setHashTag] = useState('');
+  const [categoryNum, setCategoryNum] = useState(0);
 
   const componentChangeHandler = (ComponentType: ComponentType) => {
     setComponent(ComponentType);
@@ -28,13 +29,14 @@ const WritePage: React.FC = () => {
         <Category
           componentChangeHandler={componentChangeHandler}
           newcategory={setCategory}
+          newcategorynum={setCategoryNum}
           category={category}
         />
       ) : (
         <HashTag
           componentChangeHandler={componentChangeHandler}
           contents={contents}
-          category={category}
+          categoryNum={categoryNum}
           hashTag={hashTag}
           newhashTag={setHashTag}
         />

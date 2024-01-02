@@ -25,6 +25,7 @@ const HeaderContainer = styled.div`
   top: 0;
   width: 390px;
   background-color: #f5f6fa;
+  z-index: 9999;
 `;
 
 const LogoContainer = styled.div`

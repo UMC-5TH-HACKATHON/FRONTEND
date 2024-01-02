@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Calendar from './MainPage/Calendar';
 import KnowBanner from './MainPage/KnowBanner';
 import RecordPage from './MainPage/RecordPage';
+import Header from '../common/Header';
+import BottomNav from '../common/BottomNav';
 
 const MainPage: React.FC = () => {
   const today = new Date();
@@ -17,11 +19,13 @@ const MainPage: React.FC = () => {
 
   return (
     <Container>
+      <Header />
       <KnowBanner />
       <Calendar setDates={setDates} />
       <div>
-      <RecordPage dates={dates} />
+        <RecordPage dates={dates} />
       </div>
+      <BottomNav />
     </Container>
   );
 };

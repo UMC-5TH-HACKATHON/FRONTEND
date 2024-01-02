@@ -4,12 +4,13 @@ import { ReactComponent as BtnArrowBig } from '../../../images/btn_arrow_big.svg
 import NextButton from '../../common/NextButton';
 import FinishModal from '../../modal/FinishModal';
 import { ComponentType } from '../WritePage';
+import axios from 'axios';
 
 type THashTagProps = {
   // eslint-disable-next-line no-unused-vars
   componentChangeHandler: (ComponentType: ComponentType) => void;
   contents: string;
-  category: string;
+  categoryNum: number;
   hashTag: string;
   // eslint-disable-next-line no-unused-vars
   newhashTag: (hashTag: string) => void;
@@ -18,7 +19,7 @@ type THashTagProps = {
 const HashTag: React.FC<THashTagProps> = ({
   componentChangeHandler,
   contents,
-  category,
+  categoryNum,
   hashTag,
   newhashTag,
 }) => {
@@ -34,8 +35,29 @@ const HashTag: React.FC<THashTagProps> = ({
   };
 
   const DataHandler = () => {
-    setIsModalOpen(true);
-    console.log(contents + category + hashTag);
+    axios
+      .post(
+        'http://3.34.55.111:8080/posts',
+        {
+          title: null,
+          content: contents,
+          category: categoryNum,
+          tags: hashTag,
+        },
+        {
+          headers: {
+            memberId: 1,
+          },
+        },
+      )
+      .then(res => {
+        if (res.data.isSuccess) {
+          setIsModalOpen(true);
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   return (
