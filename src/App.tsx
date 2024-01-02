@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import MainPage from './components/pages/MainPage';
-import BottomNav from './components/common/BottomNav';
-import RecordPage from './components/pages/RecordPage';
+import WritePage from './components/pages/WritePage';
 
 const App: React.FC = () => {
   return (
@@ -11,9 +10,8 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/RecordPage" element={<RecordPage />} />
+          <Route path="/write" element={<WritePage />} />
         </Routes>
-        <BottomNav />
       </BrowserRouter>
     </AppContainer>
   );

@@ -24,16 +24,20 @@ const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
   width: 390px;
-  background-color: white;
+  background-color: #f5f6fa;
 `;
 
 const LogoContainer = styled.div`
   float: left;
   margin-left: 25px;
+  margin-top: 9px;
+  margin-bottom: 13.15px;
   cursor: pointer;
 `;
+
 const MyPageLogo = styled.div`
   float: right;
   margin-right: 25px;
+  margin-top: 16px;
   cursor: pointer;
 `;
