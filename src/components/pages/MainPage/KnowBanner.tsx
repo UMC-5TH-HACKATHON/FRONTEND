@@ -1,25 +1,14 @@
-/*import React, { useEffect } from 'react';*/
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as ArrowImg } from '../../../images/btn_arrow_small.svg';
 import { ReactComponent as KnowImg } from '../../../images/know.svg';
 import { useNavigate } from 'react-router-dom';
-/*import axios from 'axios';
-import { useState } from 'react';*/
 
 const KnowBanner: React.FC = () => {
   const navigate = useNavigate();
-  /*const [variable, setVariable] = useState();
 
-  useEffect(() => {
-    axios.get(URL).then(response => {
-      console.log(response.data);
-      setVariable(response.data);
-    });
-  }, []);
-*/
   return (
-    <Container onClick={() => navigate('/')}>
+    <Container onClick={() => navigate('/know')}>
       <TextBox>
         <TodayKnowContainer>오늘의 상식</TodayKnowContainer>
         <QuestionBox>

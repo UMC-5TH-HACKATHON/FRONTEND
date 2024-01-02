@@ -20,9 +20,13 @@ const MainPage: React.FC = () => {
   return (
     <Container>
       <Header />
-      <KnowBanner />
-      <Calendar setDates={setDates} />
-      <div>
+      <div style={{ marginTop: '10px' }}>
+        <KnowBanner />
+      </div>
+      <div style={{ marginTop: '36px' }}>
+        <Calendar setDates={setDates} />
+      </div>
+      <div style={{ marginTop: '44px' }}>
         <RecordPage dates={dates} />
       </div>
       <BottomNav />
@@ -38,4 +42,5 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: #f5f6fa;
 `;
