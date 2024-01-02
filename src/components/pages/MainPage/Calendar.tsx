@@ -91,7 +91,9 @@ const Calendar: React.FC<{
   const clickDate = (date: string | number) => {
     if (typeof date === 'number') {
       setClick(date);
-      setDates(Number(year.toString() + month.toString() + date.toString()));
+      setDates(Number(year.toString().padStart(4, '0') + month.toString().padStart(2, '0') + date.toString().padStart(2, '0')));
+
+      
     }
   };
 

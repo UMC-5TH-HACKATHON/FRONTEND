@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Calendar from './MainPage/Calendar';
 import KnowBanner from './MainPage/KnowBanner';
-import RecordCard from './MainPage/Record';
-import Header from '../common/Header';
-import BottomNav from '../common/BottomNav';
+import RecordPage from './MainPage/RecordPage';
 
 const MainPage: React.FC = () => {
   const today = new Date();
@@ -19,16 +17,11 @@ const MainPage: React.FC = () => {
 
   return (
     <Container>
-      <Header />
-      <div style={{ marginTop: '10px', marginBottom: '36px' }}>
-        <KnowBanner />
-      </div>
+      <KnowBanner />
       <Calendar setDates={setDates} />
-      <div style={{ marginTop: '44px' }}>
-        <p>나의 기록</p>
-        <RecordCard />
+      <div>
+      <RecordPage dates={dates} />
       </div>
-      <BottomNav />
     </Container>
   );
 };
@@ -41,5 +34,4 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #f5f6fa;
 `;
