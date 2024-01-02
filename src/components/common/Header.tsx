@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
   
   const goToMyPage = () => {
-    navigate('/my'); // '/mypage' 경로로 이동
+    navigate('/my'); 
   };
 
   return (
@@ -17,7 +17,7 @@ const Header: React.FC = () => {
         <LogoImg />
       </LogoContainer>
       <MyPageLogo>
-        <MyPageImg />
+        <MyPageImg onClick={goToMyPage}/>
       </MyPageLogo>
     </HeaderContainer>
   );
