@@ -20,7 +20,7 @@ const RecordBtn: React.FC<TRecordBtnProps> = ({ texts }) => {
 
   useEffect(() => {
     axios
-      .get('http://3.34.55.111:8080/posts/search', {
+      .get('http://3.34.55.111:8080/posts/search/', {
         params: { tagName: texts },
       })
       .then(res => {
