@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Calendar from './MainPage/Calendar';
 import KnowBanner from './MainPage/KnowBanner';
-import RecordCard from './MainPage/BottomNav';
+import RecordCard from './MainPage/Record';
+import Header from '../common/Header';
 
 const MainPage: React.FC = () => {
   const today = new Date();
@@ -17,6 +18,7 @@ const MainPage: React.FC = () => {
 
   return (
     <Container>
+      <Header />
       <KnowBanner />
       <Calendar setDates={setDates} />
       <div>
@@ -35,4 +37,5 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: #d8e4ec;
 `;
