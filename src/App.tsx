@@ -21,6 +21,8 @@ const App: React.FC = () => {
 export default App;
 
 const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   max-width: 390px;
   min-height: 100vh;
