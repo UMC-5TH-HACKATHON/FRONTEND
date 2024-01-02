@@ -1,69 +1,80 @@
-import React from 'react';
-/*import { useNavigate } from 'react-router-dom';*/
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useState } from 'react';
+import axios from 'axios';
+import RecordCard from '../../common/RecordCard';
 
-const RecordBtn: React.FC = () => {
-  const [page, setPage] = useState('1');
-  function handleMyRecord() {
-    setPage('1');
-  }
-  function handleExplore() {
-    setPage('2');
-  }
+type TRecordBtnProps = {
+  texts: string;
+};
+
+type TPostDate = {
+  title: string;
+  content: string;
+  createdAt: string;
+  tagList: string[];
+};
+
+const RecordBtn: React.FC<TRecordBtnProps> = ({ texts }) => {
+  const [postDate, setPostDate] = useState<TPostDate[]>();
+
+  useEffect(() => {
+    axios
+      .get('http://3.34.55.111:8080/posts/search', {
+        params: { tagName: texts },
+      })
+      .then(res => {
+        setPostDate(res.data.result.postSearchTagDTOList);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+    axios
+      .get('http://3.34.55.111:8080/posts/')
+      .then(res => {
+        console.log(res.data.result.postPreviewList);
+        setPostDate(res.data.result.postPreviewList);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, [texts]);
+
   return (
     <Container>
-      <MyRecordbtn onClick={handleMyRecord}>
-        <Text color={page === '1' ? '#358FFF' : '#BEC4C6'}>나의 기록</Text>
-        {page === '1' ? <BlueLayOut /> : <GrayLayOut />}
-      </MyRecordbtn>
-      <RecordExplore onClick={handleExplore}>
-        <Text color={page === '2' ? '#358FFF' : '#BEC4C6'}>기록 구경하기</Text>
-        {page === '1' ? <GrayLayOut /> : <BlueLayOut />}
-      </RecordExplore>
+      <Div style={{ paddingLeft: '18px' }}>
+        <h2>다른 유저들의 최신 기록</h2>
+        {postDate?.map((record, index) => (
+          <RecordCard
+            navigateTo={'/record/detail'}
+            key={index}
+            title={record.title}
+            content={record.content}
+            date={record.createdAt}
+            tags={record.tagList}
+          />
+        ))}
+      </Div>
     </Container>
   );
 };
 
 export default RecordBtn;
 
-const Text = styled.div<{ color: string }>`
-  margin-top: 3px;
-  font: var(--Pretendard-14M);
-  color: ${props => props.color};
-`;
-
 const Container = styled.div`
-  height: 47px;
   width: 390px;
   display: flex;
   flex-direction: row;
   margin-top: 74px;
 `;
-const MyRecordbtn = styled.div`
-  width: 195px;
-  font: var(--Pretendard-14M);
-  text-align: center;
-  :hover {
-    color: #358fff;
+
+const Div = styled.div`
+  margin-bottom: 130px;
+
+  h2 {
+    text-align: left;
+    font: var(--Pretendard-20B);
+    color: #000;
   }
-  cursor: pointer;
-`;
-const RecordExplore = styled.div`
-  width: 195px;
-  text-align: center;
-  font: var(--Pretendard-14M);
-  cursor: pointer;
-`;
-
-const BlueLayOut = styled.div`
-  width: 195px;
-  height: 3px;
-  background-color: #358fff;
-`;
-
-const GrayLayOut = styled.div`
-  width: 195px;
-  height: 3px;
-  background-color: #f5f6fa;
 `;

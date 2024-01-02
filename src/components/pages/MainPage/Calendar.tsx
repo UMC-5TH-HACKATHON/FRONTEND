@@ -9,7 +9,8 @@ import axios from 'axios';
 
 const Calendar: React.FC<{
   setDates: React.Dispatch<React.SetStateAction<number>>;
-}> = ({ setDates }) => {
+  setView: React.Dispatch<React.SetStateAction<string | boolean>>;
+}> = ({ setDates, setView }) => {
   const today = new Date();
   const [year, setYear] = useState(today.getFullYear());
   const [month, setMonth] = useState(today.getMonth() + 1);
@@ -25,7 +26,6 @@ const Calendar: React.FC<{
         },
       })
       .then(res => {
-        console.log(res.data.result);
         setTF(res.data.result);
       })
       .catch(error => {
@@ -112,9 +112,10 @@ const Calendar: React.FC<{
     { date: 31, img: tf[30] },
   ];
 
-  const clickDate = (date: string | number) => {
+  const clickDate = (date: string | number, img: string) => {
     if (typeof date === 'number') {
       setClick(date);
+      console.log(img);
       setDates(
         Number(
           year.toString().padStart(4, '0') +
@@ -122,6 +123,7 @@ const Calendar: React.FC<{
             date.toString().padStart(2, '0'),
         ),
       );
+      setView(img);
     }
   };
 
@@ -153,10 +155,10 @@ const Calendar: React.FC<{
           ? Date12.map((item, index) => {
               return (
                 <Dates key={index}>
-                  <DateText onClick={() => clickDate(item.date)}>
+                  <DateText onClick={() => clickDate(item.date, item.img)}>
                     {item.date}
                   </DateText>
-                  <DateImg onClick={() => clickDate(item.date)}>
+                  <DateImg onClick={() => clickDate(item.date, item.img)}>
                     {item.date === '' ? (
                       ''
                     ) : click === item.date && item.img ? (
@@ -175,10 +177,10 @@ const Calendar: React.FC<{
           : Date1.map((item, index) => {
               return (
                 <Dates key={index}>
-                  <DateText onClick={() => clickDate(item.date)}>
+                  <DateText onClick={() => clickDate(item.date, item.img)}>
                     {item.date}
                   </DateText>
-                  <DateImg onClick={() => clickDate(item.date)}>
+                  <DateImg onClick={() => clickDate(item.date, item.img)}>
                     {item.date === '' ? (
                       ''
                     ) : click === item.date && item.img ? (

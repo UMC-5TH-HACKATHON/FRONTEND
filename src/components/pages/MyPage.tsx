@@ -4,10 +4,9 @@ import Mypage from '../../images/mypage.svg';
 import { ReactComponent as BtnArrowBig } from '../../images/btn_arrow_big.svg';
 
 const MyPageText = styled.p`
-    text-align: center;
-    color: #000;
-    font: var(--Pretendard-18M);
-    margin-top: 7px;
+  text-align: center;
+  color: #000;
+  font: var(--Pretendard-18M);
 `;
 
 const HeaderContainer = styled.div`
@@ -29,26 +28,25 @@ const HeaderContainer = styled.div`
 `;
 
 const MyPageContanier = styled.div`
-    margin-top: 20px;
+  margin-top: 20px;
 `;
 
-
 const Header: React.FC = () => {
-    const BackHandler = () => {
-        window.history.back(); 
-    };
+  const BackHandler = () => {
+    window.history.back();
+  };
 
-    return (
-        <HeaderContainer className="header-container">
-            <div className="header-content">
-                <BtnArrowBig onClick={BackHandler} />
-                <MyPageText>마이페이지</MyPageText> 
-            </div>
-            <MyPageContanier className="mypage-container">
-                <img src={Mypage} alt="Mypage Icon" className="mypage-icon" />
-            </MyPageContanier>
-        </HeaderContainer>
-    );
+  return (
+    <HeaderContainer className="header-container">
+      <div className="header-content">
+        <BtnArrowBig onClick={BackHandler} />
+        <MyPageText>마이페이지</MyPageText>
+      </div>
+      <MyPageContanier className="mypage-container">
+        <img src={Mypage} alt="Mypage Icon" className="mypage-icon" />
+      </MyPageContanier>
+    </HeaderContainer>
+  );
 };
 
 export default Header;
