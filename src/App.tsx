@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import MainPage from './components/pages/MainPage';
 import Header from './components/common/Header';
 import BottomNav from './components/common/BottomNav';
+import RecordCard from './components/pages/MainPage/RecordCard';
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/record" element={<RecordCard />} />
         </Routes>
         <BottomNav />
       </BrowserRouter>

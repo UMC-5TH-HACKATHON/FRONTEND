@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Calendar from './MainPage/Calendar';
 import KnowBanner from './MainPage/KnowBanner';
-import RecordCard from './MainPage/BottomNav';
+import RecordCard from './MainPage/RecordCard';
+
 
 const MainPage: React.FC = () => {
   return (
@@ -10,7 +11,6 @@ const MainPage: React.FC = () => {
       <KnowBanner />
       <Calendar />
       <div>
-        <p>나의 기록</p>
         <RecordCard />
       </div>
     </Container>
@@ -26,11 +26,5 @@ const Container = styled.div`
   align-items: center;
   text-align: center;
 
-  div {
-    font: var(--Pretendard-26B);
-  }
 
-  p {
-    font: var(--Pretendard-16M);
-  }
 `;
