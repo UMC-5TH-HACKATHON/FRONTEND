@@ -71,7 +71,7 @@ const Record: React.FC<TRecordPageProps> = ({ dates, view }) => {
       .catch(error => {
         console.error(error);
       });
-  }, [year, month, date]);
+  }, [year, month, date, view, dates]);
 
   const formattedDate = `${year.toString().padStart(4, '0')}년 ${month
     .toString()
