@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import MainPage from './components/pages/MainPage';
 import WritePage from './components/pages/WritePage';
 import RecordPage from './components/pages/RecordPage';
-import TodayKnow from './components/pages/TodayKnow';
 import KnowPage from './components/pages/KnowPage';
+import RecordDetail from './components/pages/RecordDetail';
+import OnBoarding1 from './components/pages/OnBoarding1';
 import MyPage from './components/pages/MyPage';
 
 const App: React.FC = () => {
@@ -16,8 +17,9 @@ const App: React.FC = () => {
           <Route path="/" element={<MainPage />} />
           <Route path="/write" element={<WritePage />} />
           <Route path="/record" element={<RecordPage />} />
-          <Route path="/know" element={<TodayKnow />} />
           <Route path="/know" element={<KnowPage />} />
+          <Route path="/detail" element={<RecordDetail />} />
+          <Route path="/onBoard1" element={<OnBoarding1 />} />
           <Route path="/my" element={<MyPage />} />
         </Routes>
       </BrowserRouter>
