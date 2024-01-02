@@ -20,7 +20,7 @@ const MainPage: React.FC = () => {
       <KnowBanner />
       <Calendar setDates={setDates} />
       <div>
-        <RecordPage dates={dates}/>
+      <RecordPage dates={dates} />
       </div>
     </Container>
   );

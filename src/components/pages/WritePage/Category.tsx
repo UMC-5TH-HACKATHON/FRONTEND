@@ -1,42 +1,54 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as BtnArrowBig } from '../../../images/btn_arrow_big.svg';
 import { ReactComponent as BookCheck } from '../../../images/book_check_duotone.svg';
 import { ReactComponent as Polygon } from '../../../images/polygon.svg';
 import NextButton from '../../common/NextButton';
 import { ComponentType } from '../WritePage';
+import axios from 'axios';
 
 type TCategoryProps = {
   // eslint-disable-next-line no-unused-vars
   componentChangeHandler: (ComponentType: ComponentType) => void;
   // eslint-disable-next-line no-unused-vars
   newcategory: (category: string) => void;
+  // eslint-disable-next-line no-unused-vars
+  newcategorynum: (id: number) => void;
   category: string;
+};
+
+type TCategory = {
+  id: number;
+  name: string;
 };
 
 const Category: React.FC<TCategoryProps> = ({
   componentChangeHandler,
   newcategory,
+  newcategorynum,
   category,
 }) => {
   const [view, setView] = useState(false);
-  const CategoryData = [
-    '마케팅',
-    '프로그래밍',
-    '데이터 사이언스',
-    '디자인',
-    '기획',
-    '금융 · 재테크',
-    '창업 · 부업',
-    '직접 추가',
-  ];
+  const [categoryData, setCategoryData] = useState<TCategory[]>();
+
+  useEffect(() => {
+    axios
+      .get('http://3.34.55.111:8080/posts/categories')
+      .then(res => {
+        setCategoryData(res.data.result);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
   const BackHandler = () => {
     componentChangeHandler('Write');
   };
 
-  const CategoryHandler = (item: string) => {
-    newcategory(item);
+  const CategoryHandler = (name: string, id: number) => {
+    newcategory(name);
+    newcategorynum(id);
     setView(false);
   };
 
@@ -72,14 +84,14 @@ const Category: React.FC<TCategoryProps> = ({
         <ModalBlackOut>
           <SelectDiv>
             <h2>카테고리를 선택해주세요</h2>
-            {CategoryData.map((item, index) => {
+            {categoryData?.map(item => {
               return (
                 <CategoryDiv
-                  key={index}
-                  onClick={() => CategoryHandler(item)}
-                  color={item === category ? '#358FFF' : '#000'}
+                  key={item.id}
+                  onClick={() => CategoryHandler(item.name, item.id)}
+                  color={item.name === category ? '#358FFF' : '#000'}
                 >
-                  {item}
+                  {item.name}
                 </CategoryDiv>
               );
             })}
