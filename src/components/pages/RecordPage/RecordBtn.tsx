@@ -13,19 +13,25 @@ const RecordBtn: React.FC = () => {
   }
   return (
     <Container>
-      <MyRecordbtn>
-        나의 기록
-        <BlueLayOut />
+      <MyRecordbtn onClick={handleMyRecord}>
+        <Text color={page === '1' ? '#358FFF' : '#BEC4C6'}>나의 기록</Text>
+        {page === '1' ? <BlueLayOut /> : <GrayLayOut />}
       </MyRecordbtn>
-      <RecordExplore>
-        기록 둘러보기
-        <GrayLayOut />
+      <RecordExplore onClick={handleExplore}>
+        <Text color={page === '2' ? '#358FFF' : '#BEC4C6'}>기록 구경하기</Text>
+        {page === '1' ? <GrayLayOut /> : <BlueLayOut />}
       </RecordExplore>
     </Container>
   );
 };
 
 export default RecordBtn;
+
+const Text = styled.div<{ color: string }>`
+  margin-top: 3px;
+  font: var(--Pretendard-14M);
+  color: ${props => props.color};
+`;
 
 const Container = styled.div`
   height: 47px;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import MainPage from './components/pages/MainPage';
 import WritePage from './components/pages/WritePage';
 import RecordPage from './components/pages/RecordPage';
+import TodayKnow from './components/pages/TodayKnow';
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
           <Route path="/" element={<MainPage />} />
           <Route path="/write" element={<WritePage />} />
           <Route path="/record" element={<RecordPage />} />
+          <Route path="/know" element={<TodayKnow />} />
         </Routes>
       </BrowserRouter>
     </AppContainer>

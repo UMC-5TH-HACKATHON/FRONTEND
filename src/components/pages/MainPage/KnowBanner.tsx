@@ -4,20 +4,25 @@ import styled from 'styled-components';
 import { ReactComponent as ArrowImg } from '../../../images/btn_arrow_small.svg';
 import { ReactComponent as KnowImg } from '../../../images/know.svg';
 import { useNavigate } from 'react-router-dom';
-/*import axios from 'axios';
-import { useState } from 'react';*/
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 const KnowBanner: React.FC = () => {
   const navigate = useNavigate();
-  /*const [variable, setVariable] = useState();
+  const [QuestionData, setQuestionData] = useState();
 
   useEffect(() => {
-    axios.get(URL).then(response => {
-      console.log(response.data);
-      setVariable(response.data);
-    });
+    axios
+      .get('http://3.34.55.111:8080/posts/')
+      .then(response => {
+        console.log(response.data);
+        setQuestionData(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }, []);
-*/
+
   return (
     <Container onClick={() => navigate('/')}>
       <TextBox>

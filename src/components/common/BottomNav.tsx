@@ -22,7 +22,7 @@ const BottomNav: React.FC = () => {
       <AddBtn onClick={() => navigate('/write')}>
         <AddImg />
       </AddBtn>
-      <RecordBtn onClick={() => navigate('/')}>
+      <RecordBtn onClick={() => navigate('/record')}>
         {location.pathname === '/record' ? <BookClickImg /> : <BookImg />}
         <Text color={location.pathname === '/record' ? '#358FFF' : '#BEC4C6'}>
           기록
