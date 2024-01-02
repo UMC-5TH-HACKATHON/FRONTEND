@@ -11,9 +11,7 @@ const Calendar: React.FC<{
   setDates: React.Dispatch<React.SetStateAction<number>>;
 }> = ({ setDates }) => {
   const today = new Date();
-  const [year, setYear] = useState(
-    Number(today.getFullYear().toString().slice(-2)),
-  );
+  const [year, setYear] = useState(today.getFullYear());
   const [month, setMonth] = useState(today.getMonth() + 1);
   const [click, setClick] = useState<string | number>(today.getDate());
   const [tf, setTF] = useState([]);
@@ -38,7 +36,7 @@ const Calendar: React.FC<{
   useEffect(() => {
     const initialDate = year * 10000 + month * 100 + today.getDate();
     setDates(initialDate);
-  }, [year, month, setDates]); 
+  }, [year, month, setDates]);
 
   const Date12 = [
     { date: '', img: '' },
@@ -119,8 +117,7 @@ const Calendar: React.FC<{
       setClick(date);
       setDates(
         Number(
-          '20' +
-            year.toString().padStart(2, '0') +
+          year.toString().padStart(4, '0') +
             month.toString().padStart(2, '0') +
             date.toString().padStart(2, '0'),
         ),
@@ -129,12 +126,12 @@ const Calendar: React.FC<{
   };
 
   const click12 = () => {
-    setYear(23);
+    setYear(2023);
     setMonth(12);
   };
 
   const click1 = () => {
-    setYear(24);
+    setYear(2024);
     setMonth(1);
   };
 
@@ -145,7 +142,7 @@ const Calendar: React.FC<{
           <BtnArrowSmall transform="rotate(180)" />
         </button>
         <p>
-          20{year}년 {month}월
+          {year}년 {month}월
         </p>
         <button onClick={click1}>
           <BtnArrowSmall />
