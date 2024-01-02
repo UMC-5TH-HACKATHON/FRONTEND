@@ -1,4 +1,3 @@
-/*import React, { useEffect } from 'react';*/
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as ArrowImg } from '../../../images/btn_arrow_small.svg';
@@ -24,7 +23,7 @@ const KnowBanner: React.FC = () => {
   }, []);
 
   return (
-    <Container onClick={() => navigate('/')}>
+    <Container onClick={() => navigate('/know')}>
       <TextBox>
         <TodayKnowContainer>오늘의 상식</TodayKnowContainer>
         <QuestionBox>

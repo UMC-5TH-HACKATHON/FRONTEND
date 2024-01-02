@@ -48,7 +48,7 @@ const Record: React.FC<TRecordPageProps> = ({ dates }) => {
       <LogoHeader>나의 기록</LogoHeader>
       <DateSection>{formattedDate}</DateSection>
       {recordsData.map((record, index) => (
-        <RecordCard key={index} {...record} />
+        <RecordCard navigateTo={'/'} key={index} {...record} />
       ))}
     </PageContainer>
   );

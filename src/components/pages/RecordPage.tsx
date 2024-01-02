@@ -12,18 +12,11 @@ const RecordPage: React.FC = () => {
     <RecordBox>
       <RecordHeader />
       <RecordBtn />
-      <TodayText>
-        오늘 나의 기록
-        {recordsData.map((record, index) => (
-          <RecordCard key={index} {...record} />
-        ))}
-      </TodayText>
+      <TodayText>오늘 나의 기록</TodayText>
       <Separation />
       <TodayText>나의 모든기록</TodayText>
       <TodayDecription>나의 기록들을 최신순으로 보여드려요.</TodayDecription>
-      {recordsData.map((record, index) => (
-        <RecordCard key={index} {...record} />
-      ))}
+
       <BottomNav />
     </RecordBox>
   );

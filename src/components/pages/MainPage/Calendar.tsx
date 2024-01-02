@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as BtnArrowSmall } from '../../../images/btn_arrow_small.svg';
 import { ReactComponent as RecordOff } from '../../../images/record_off.svg';
 import { ReactComponent as RecordOn } from '../../../images/record_on.svg';
 import { ReactComponent as RecordOnClick } from '../../../images/record_on_click.svg';
 import { ReactComponent as RecordOffClick } from '../../../images/record_off_click.svg';
+import axios from 'axios';
 
 const Calendar: React.FC<{
   setDates: React.Dispatch<React.SetStateAction<number>>;
@@ -13,6 +14,29 @@ const Calendar: React.FC<{
   const [year, setYear] = useState(today.getFullYear());
   const [month, setMonth] = useState(today.getMonth() + 1);
   const [click, setClick] = useState<string | number>(today.getDate());
+  const [tf, setTF] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://3.34.55.111:8080/users', {
+        params: { mm: month, yy: year },
+        headers: {
+          memberId: 1,
+        },
+      })
+      .then(res => {
+        console.log(res.data.result);
+        setTF(res.data.result);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, [month, year]);
+
+  useEffect(() => {
+    const initialDate = year * 10000 + month * 100 + today.getDate();
+    setDates(initialDate);
+  }, [year, month, setDates]);
 
   const Date12 = [
     { date: '', img: '' },
@@ -20,80 +44,84 @@ const Calendar: React.FC<{
     { date: '', img: '' },
     { date: '', img: '' },
     { date: '', img: '' },
-    { date: 1, img: true },
-    { date: 2, img: true },
-    { date: 3, img: true },
-    { date: 4, img: true },
-    { date: 5, img: false },
-    { date: 6, img: true },
-    { date: 7, img: true },
-    { date: 8, img: true },
-    { date: 9, img: false },
-    { date: 10, img: true },
-    { date: 11, img: true },
-    { date: 12, img: true },
-    { date: 13, img: false },
-    { date: 14, img: true },
-    { date: 15, img: true },
-    { date: 16, img: true },
-    { date: 17, img: true },
-    { date: 18, img: true },
-    { date: 19, img: true },
-    { date: 20, img: false },
-    { date: 21, img: true },
-    { date: 22, img: true },
-    { date: 23, img: true },
-    { date: 24, img: false },
-    { date: 25, img: true },
-    { date: 26, img: true },
-    { date: 27, img: true },
-    { date: 28, img: false },
-    { date: 29, img: false },
-    { date: 30, img: true },
-    { date: 31, img: true },
+    { date: 1, img: tf[0] },
+    { date: 2, img: tf[1] },
+    { date: 3, img: tf[2] },
+    { date: 4, img: tf[3] },
+    { date: 5, img: tf[4] },
+    { date: 6, img: tf[5] },
+    { date: 7, img: tf[6] },
+    { date: 8, img: tf[7] },
+    { date: 9, img: tf[8] },
+    { date: 10, img: tf[9] },
+    { date: 11, img: tf[10] },
+    { date: 12, img: tf[11] },
+    { date: 13, img: tf[12] },
+    { date: 14, img: tf[13] },
+    { date: 15, img: tf[14] },
+    { date: 16, img: tf[15] },
+    { date: 17, img: tf[16] },
+    { date: 18, img: tf[17] },
+    { date: 19, img: tf[18] },
+    { date: 20, img: tf[19] },
+    { date: 21, img: tf[20] },
+    { date: 22, img: tf[21] },
+    { date: 23, img: tf[22] },
+    { date: 24, img: tf[23] },
+    { date: 25, img: tf[24] },
+    { date: 26, img: tf[25] },
+    { date: 27, img: tf[26] },
+    { date: 28, img: tf[27] },
+    { date: 29, img: tf[28] },
+    { date: 30, img: tf[29] },
+    { date: 31, img: tf[30] },
   ];
 
   const Date1 = [
     { date: '', img: '' },
-    { date: 1, img: true },
-    { date: 2, img: true },
-    { date: 3, img: true },
-    { date: 4, img: true },
-    { date: 5, img: false },
-    { date: 6, img: true },
-    { date: 7, img: true },
-    { date: 8, img: true },
-    { date: 9, img: false },
-    { date: 10, img: true },
-    { date: 11, img: true },
-    { date: 12, img: true },
-    { date: 13, img: false },
-    { date: 14, img: true },
-    { date: 15, img: true },
-    { date: 16, img: true },
-    { date: 17, img: true },
-    { date: 18, img: true },
-    { date: 19, img: true },
-    { date: 20, img: false },
-    { date: 21, img: true },
-    { date: 22, img: true },
-    { date: 23, img: true },
-    { date: 24, img: false },
-    { date: 25, img: true },
-    { date: 26, img: true },
-    { date: 27, img: true },
-    { date: 28, img: false },
-    { date: 29, img: false },
-    { date: 30, img: true },
-    { date: 31, img: true },
+    { date: 1, img: tf[0] },
+    { date: 2, img: tf[1] },
+    { date: 3, img: tf[2] },
+    { date: 4, img: tf[3] },
+    { date: 5, img: tf[4] },
+    { date: 6, img: tf[5] },
+    { date: 7, img: tf[6] },
+    { date: 8, img: tf[7] },
+    { date: 9, img: tf[8] },
+    { date: 10, img: tf[9] },
+    { date: 11, img: tf[10] },
+    { date: 12, img: tf[11] },
+    { date: 13, img: tf[12] },
+    { date: 14, img: tf[13] },
+    { date: 15, img: tf[14] },
+    { date: 16, img: tf[15] },
+    { date: 17, img: tf[16] },
+    { date: 18, img: tf[17] },
+    { date: 19, img: tf[18] },
+    { date: 20, img: tf[19] },
+    { date: 21, img: tf[20] },
+    { date: 22, img: tf[21] },
+    { date: 23, img: tf[22] },
+    { date: 24, img: tf[23] },
+    { date: 25, img: tf[24] },
+    { date: 26, img: tf[25] },
+    { date: 27, img: tf[26] },
+    { date: 28, img: tf[27] },
+    { date: 29, img: tf[28] },
+    { date: 30, img: tf[29] },
+    { date: 31, img: tf[30] },
   ];
 
   const clickDate = (date: string | number) => {
     if (typeof date === 'number') {
       setClick(date);
-      setDates(Number(year.toString().padStart(4, '0') + month.toString().padStart(2, '0') + date.toString().padStart(2, '0')));
-
-      
+      setDates(
+        Number(
+          year.toString().padStart(4, '0') +
+            month.toString().padStart(2, '0') +
+            date.toString().padStart(2, '0'),
+        ),
+      );
     }
   };
 
