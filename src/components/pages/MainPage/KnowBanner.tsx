@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+/*import React, { useEffect } from 'react';*/
+import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as ArrowImg } from '../../../images/btn_arrow_small.svg';
 import { ReactComponent as KnowImg } from '../../../images/know.svg';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { useState } from 'react';
+/*import axios from 'axios';
+import { useState } from 'react';*/
 
 const KnowBanner: React.FC = () => {
   const navigate = useNavigate();

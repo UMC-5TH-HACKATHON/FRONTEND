@@ -1,9 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+/*import { useNavigate } from 'react-router-dom';*/
 import styled from 'styled-components';
 
 const RecordBtn: React.FC = () => {
-  const navigate = useNavigate();
   return (
     <Container>
       <MyRecordbtn>나의 기록</MyRecordbtn>
@@ -19,6 +18,7 @@ const Container = styled.div`
   width: 390px;
   display: flex;
   flex-direction: row;
+  margin-top: 74px;
 `;
 const MyRecordbtn = styled.div`
   width: 195px;

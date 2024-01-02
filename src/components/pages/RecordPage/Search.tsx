@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as SearchImg } from '../../../images/search.svg';
 import { ReactComponent as CloseImg } from '../../../images/btn_Close_round.svg';
-import { useNavigate } from 'react-router-dom';
 
 const Search: React.FC = () => {
   function SearchClick() {
