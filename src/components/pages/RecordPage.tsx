@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import BottomNav from '../common/BottomNav';
 import RecordHeader from './RecordPage/RecordHeader';
 import RecordBtn from './RecordPage/RecordBtn';
-import { useState, useEffect } from 'react';
-import RecordCard from '../common/RecordCard';
-import recordsData from '../pages/MainPage/recordsData';
 
 const RecordPage: React.FC = () => {
   return (
