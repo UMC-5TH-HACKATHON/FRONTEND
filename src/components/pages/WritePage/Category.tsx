@@ -65,7 +65,7 @@ const Category: React.FC<TCategoryProps> = ({
           text="다음"
           disabled={category === ''}
           onClick={NextHandler}
-          style={{ position: 'absolute', bottom: '36px', width: '100%' }}
+          style={{ marginTop: '494px', marginBottom: '36px' }}
         />
       </Container>
       {view && (

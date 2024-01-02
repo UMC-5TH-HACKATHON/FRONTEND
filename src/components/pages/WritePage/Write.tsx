@@ -51,7 +51,7 @@ const Write: React.FC<TWriteProps> = ({
         text="다음"
         disabled={contents === ''}
         onClick={NextHandler}
-        style={{ position: 'absolute', bottom: '36px', width: '100%' }}
+        style={{ marginTop: '81px', marginBottom: '36px' }}
       />
     </Container>
   );

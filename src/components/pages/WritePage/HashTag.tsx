@@ -56,7 +56,7 @@ EX) #해커톤#디자인"
         text="완료"
         disabled={hashTag === ''}
         onClick={DataHandler}
-        style={{ position: 'absolute', bottom: '36px', width: '100%' }}
+        style={{ marginTop: '398px', marginBottom: '36px' }}
       />
       <FinishModal isOpen={isModalOpen} />
     </Container>
