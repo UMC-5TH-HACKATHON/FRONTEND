@@ -29,8 +29,6 @@ const KnowPage: React.FC = () => {
       .catch(error => {
         console.error(error);
       });
-    
-      
   }, []);
 
   return (
@@ -45,7 +43,7 @@ const KnowPage: React.FC = () => {
             <button>
               <BtnArrowSmall transform="rotate(180)" />
             </button>
-            <p>2023년 12월 7일</p>
+            <p>2023년 01월 03일</p>
             <button>
               <BtnArrowSmall />
             </button>

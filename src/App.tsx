@@ -18,7 +18,7 @@ const App: React.FC = () => {
           <Route path="/write" element={<WritePage />} />
           <Route path="/record" element={<RecordPage />} />
           <Route path="/know" element={<KnowPage />} />
-          <Route path="/detail" element={<RecordDetail />} />
+          <Route path="/record/detail" element={<RecordDetail />} />
           <Route path="/onBoard1" element={<OnBoarding1 />} />
           <Route path="/my" element={<MyPage />} />
         </Routes>

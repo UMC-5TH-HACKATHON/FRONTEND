@@ -84,7 +84,7 @@ const Record: React.FC<TRecordPageProps> = ({ dates, view }) => {
       {view === true ? (
         postDate?.map((record, index) => (
           <RecordCard
-            navigateTo={'/'}
+            navigateTo={'/record/detail'}
             key={index}
             title={record.title}
             content={record.content}

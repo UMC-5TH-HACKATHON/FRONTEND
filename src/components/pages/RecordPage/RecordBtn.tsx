@@ -47,7 +47,7 @@ const RecordBtn: React.FC<TRecordBtnProps> = ({ texts }) => {
         <h2>다른 유저들의 최신 기록</h2>
         {postDate?.map((record, index) => (
           <RecordCard
-            navigateTo={'/'}
+            navigateTo={'/record/detail'}
             key={index}
             title={record.title}
             content={record.content}

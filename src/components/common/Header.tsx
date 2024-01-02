@@ -16,7 +16,7 @@ const Header: React.FC = () => {
       <LogoContainer onClick={() => navigate('/')}>
         <LogoImg />
       </LogoContainer>
-      <MyPageLogo>
+      <MyPageLogo onClick={goToMyPage}>
         <MyPageImg />
       </MyPageLogo>
     </HeaderContainer>
