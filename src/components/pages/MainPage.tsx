@@ -4,6 +4,7 @@ import Calendar from './MainPage/Calendar';
 import KnowBanner from './MainPage/KnowBanner';
 import RecordPage from './MainPage/Record';
 import Header from '../common/Header';
+import BottomNav from '../common/BottomNav';
 
 const MainPage: React.FC = () => {
   const today = new Date();
@@ -28,6 +29,7 @@ const MainPage: React.FC = () => {
       <div style={{ marginTop: '44px' }}>
         <RecordPage dates={dates} />
       </div>
+      <BottomNav />
     </Container>
   );
 };
