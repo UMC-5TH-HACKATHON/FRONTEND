@@ -34,7 +34,7 @@ const NavContainer = styled.div`
   bottom: 0;
   width: 390px;
   height: 97px;
-  background-color: #d8e4ec;
+  background-color: white;
 `;
 
 const HomeBtn = styled.div`

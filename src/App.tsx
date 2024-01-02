@@ -2,16 +2,16 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import MainPage from './components/pages/MainPage';
-import Header from './components/common/Header';
 import BottomNav from './components/common/BottomNav';
+import RecordPage from './components/pages/RecordPage';
 
 const App: React.FC = () => {
   return (
     <AppContainer>
       <BrowserRouter>
-        <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/RecordPage" element={<RecordPage />} />
         </Routes>
         <BottomNav />
       </BrowserRouter>
