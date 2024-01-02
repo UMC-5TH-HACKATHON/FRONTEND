@@ -6,6 +6,7 @@ import WritePage from './components/pages/WritePage';
 import RecordPage from './components/pages/RecordPage';
 import TodayKnow from './components/pages/TodayKnow';
 import KnowPage from './components/pages/KnowPage';
+import MyPage from './components/pages/MyPage';
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
           <Route path="/record" element={<RecordPage />} />
           <Route path="/know" element={<TodayKnow />} />
           <Route path="/know" element={<KnowPage />} />
+          <Route path="/my" element={<MyPage />} />
         </Routes>
       </BrowserRouter>
     </AppContainer>
