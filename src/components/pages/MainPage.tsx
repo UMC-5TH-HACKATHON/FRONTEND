@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Calendar from './MainPage/Calendar';
 import KnowBanner from './MainPage/KnowBanner';
-import RecordPage from './MainPage/Record';
+import Record from './MainPage/Record';
 import Header from '../common/Header';
 import BottomNav from '../common/BottomNav';
 
@@ -12,6 +12,7 @@ const MainPage: React.FC = () => {
     today.getMonth() + 1
   }${today.getDate()}`;
   const [dates, setDates] = useState(Number(formattedDate));
+  const [view, setView] = useState<boolean | string>('');
 
   useEffect(() => {
     console.log(dates);
@@ -24,10 +25,10 @@ const MainPage: React.FC = () => {
         <KnowBanner />
       </div>
       <div style={{ marginTop: '36px' }}>
-        <Calendar setDates={setDates} />
+        <Calendar setDates={setDates} setView={setView} />
       </div>
       <div style={{ marginTop: '44px' }}>
-        <RecordPage dates={dates} />
+        <Record dates={dates} view={view} />
       </div>
       <BottomNav />
     </Container>

@@ -29,6 +29,8 @@ const KnowPage: React.FC = () => {
       .catch(error => {
         console.error(error);
       });
+    
+      
   }, []);
 
   return (
