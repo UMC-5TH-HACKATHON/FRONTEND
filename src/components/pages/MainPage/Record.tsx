@@ -35,12 +35,11 @@ type TRecordPageProps = {
 }
 
 const RecordPage: React.FC<TRecordPageProps> = ({ dates }) => {
-  const year = Math.floor(dates / 10000); // 년도 추출
-  const month = Math.floor((dates % 10000) / 100); // 월 추출
-  const date = dates % 100; // 일 추출
+  const year = Math.floor(dates / 10000); 
+  const month = Math.floor((dates % 10000) / 100); 
+  const date = dates % 100; 
 
-  // 날짜를 'YYYY년 MM월 DD일' 형식으로 변환
-  const formattedDate = `${year}년 ${month.toString().padStart(2, '0')}월 ${date.toString().padStart(2, '0')}일`;
+  const formattedDate = `${year.toString().padStart(4, '0')}년 ${month.toString().padStart(2, '0')}월 ${date.toString().padStart(2, '0')}일`;
 
 
   return (
@@ -48,7 +47,7 @@ const RecordPage: React.FC<TRecordPageProps> = ({ dates }) => {
       <LogoHeader>나의 기록</LogoHeader>
       <DateSection>{formattedDate}</DateSection>
       {recordsData.map((record, index) => (
-        <RecordCard key={index} {...record} />
+        <RecordCard navigateTo={'/'} key={index} {...record} />
       ))}
     </PageContainer>
   );

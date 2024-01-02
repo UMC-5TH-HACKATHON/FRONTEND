@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Calendar from './MainPage/Calendar';
 import KnowBanner from './MainPage/KnowBanner';
-import RecordPage from './MainPage/RecordPage';
+import RecordPage from './MainPage/Record';
 
 const MainPage: React.FC = () => {
   const today = new Date();
@@ -20,7 +20,7 @@ const MainPage: React.FC = () => {
       <KnowBanner />
       <Calendar setDates={setDates} />
       <div>
-      <RecordPage dates={dates} />
+        <RecordPage dates={dates}/>
       </div>
     </Container>
   );
