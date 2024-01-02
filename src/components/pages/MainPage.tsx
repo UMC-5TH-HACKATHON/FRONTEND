@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Calendar from './MainPage/Calendar';
 import KnowBanner from './MainPage/KnowBanner';
 import RecordPage from './MainPage/Record';
+import Header from '../common/Header';
+import BottomNav from '../common/BottomNav';
 
 const MainPage: React.FC = () => {
   const today = new Date();
@@ -17,11 +19,17 @@ const MainPage: React.FC = () => {
 
   return (
     <Container>
-      <KnowBanner />
-      <Calendar setDates={setDates} />
-      <div>
-      <RecordPage dates={dates} />
+      <Header />
+      <div style={{ marginTop: '10px' }}>
+        <KnowBanner />
       </div>
+      <div style={{ marginTop: '36px' }}>
+        <Calendar setDates={setDates} />
+      </div>
+      <div style={{ marginTop: '44px' }}>
+        <RecordPage dates={dates} />
+      </div>
+      <BottomNav />
     </Container>
   );
 };
@@ -34,4 +42,5 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: #f5f6fa;
 `;
