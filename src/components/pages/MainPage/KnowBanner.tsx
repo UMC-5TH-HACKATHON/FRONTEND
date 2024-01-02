@@ -3,9 +3,22 @@ import styled from 'styled-components';
 import { ReactComponent as ArrowImg } from '../../../images/btn_arrow_small.svg';
 import { ReactComponent as KnowImg } from '../../../images/know.svg';
 import { useNavigate } from 'react-router-dom';
+/*import axios from 'axios';*/
 
 const KnowBanner: React.FC = () => {
   const navigate = useNavigate();
+
+  /*useEffect(() => {
+    axios
+      .get('http://3.34.55.111:8080/posts/')
+      .then(response => {
+        console.log(response.data);
+        setQuestionData(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);*/
 
   return (
     <Container onClick={() => navigate('/know')}>

@@ -15,7 +15,7 @@ const Search: React.FC = () => {
       <SearchClickBox onClick={SearchClick}>
         <SearchImg />
       </SearchClickBox>
-      <InputBox />
+      <InputBox placeholder="기록을 검색해보세요" />
       <CloseClickBox onClick={CloseClick}>
         <CloseImg />
       </CloseClickBox>
@@ -39,10 +39,12 @@ const SearchBox = styled.div`
 
 const SearchClickBox = styled.div`
   margin-top: 10px;
+  margin-left: 10px;
   cursor: pointer;
 `;
 const CloseClickBox = styled.div`
   margin-top: 10px;
+  margin-right: 10px;
   cursor: pointer;
 `;
 
