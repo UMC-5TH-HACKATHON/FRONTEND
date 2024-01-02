@@ -7,6 +7,7 @@ import RecordPage from './components/pages/RecordPage';
 import KnowPage from './components/pages/KnowPage';
 import RecordDetail from './components/pages/RecordDetail';
 import OnBoarding1 from './components/pages/OnBoarding1';
+import MyPage from './components/pages/MyPage';
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
           <Route path="/know" element={<KnowPage />} />
           <Route path="/detail" element={<RecordDetail />} />
           <Route path="/onBoard1" element={<OnBoarding1 />} />
+          <Route path="/my" element={<MyPage />} />
         </Routes>
       </BrowserRouter>
     </AppContainer>
