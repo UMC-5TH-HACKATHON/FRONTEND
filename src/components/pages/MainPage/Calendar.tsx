@@ -35,6 +35,11 @@ const Calendar: React.FC<{
       });
   }, [month, year]);
 
+  useEffect(() => {
+    const initialDate = year * 10000 + month * 100 + today.getDate();
+    setDates(initialDate);
+  }, [year, month, setDates]); 
+
   const Date12 = [
     { date: '', img: '' },
     { date: '', img: '' },

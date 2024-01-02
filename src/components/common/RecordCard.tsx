@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import styled from 'styled-components';
 import {ReactComponent as DetailButtonSVG} from '../../images/detailbutton.svg'
 
@@ -8,14 +9,22 @@ type Props = {
   content: string;
   date: string;
   tags: string[];
+  navigateTo: string;
 }
 
-const RecordCard: React.FC<Props> = ({ title, content, date, tags }) => {
+const RecordCard: React.FC<Props> = ({ title, content, date, tags, navigateTo }) => {
+    const navigate = useNavigate();
+  
+    const handleDetailButtonClick = () => {
+      navigate(navigateTo);
+    };
+
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>{title}</CardTitle> 
-        <DetailButton aria-label="자세히">
+        <DetailButton aria-label="자세히" onClick={handleDetailButtonClick}>
           <DetailButtonSVG />
         </DetailButton>
       </CardHeader>
@@ -86,12 +95,12 @@ const CardFooter = styled.div`
 `;
 
 const Tag = styled.span`
-  display: inline-block;
   background-color: #FFFFFF; 
   border-radius: 4px;
   padding: 4px 8px;
   font-size: 0.85em;
   color: #000000; 
   margin-top: 10px;
+  margin-bottom: 20px;
   font: var(--Pretendard-12R);
 `;
