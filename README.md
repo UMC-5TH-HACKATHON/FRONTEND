@@ -1,8 +1,4 @@
 # 차곡차곡
-> **차곡차곡 바로가기 :** [https://stepbystep-entj.netlify.app](https://stepbystep-entj.netlify.app)
-<br>
-
-## 💻 프로젝트 소개
 > **ENTJ을 위한 TIL 서비스 : 차곡차곡**
 <br>
 
@@ -30,3 +26,7 @@
 |!HOTFIX|급하게 치명적인 버그를 고쳐야하는 경우|
 |!BREAKING CHANGE| 커다란 API 변경|
 > 예시: "Feat: 로그인 API 연동"
+
+## 🖱 동작 화면
+https://github.com/UMC-5TH-HACKATHON/FRONTEND/assets/72345074/88198e77-e28d-43df-a91a-9e67d0ce9dc7
+
